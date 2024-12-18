@@ -1,0 +1,71 @@
+﻿@model ITShop.Models.NguoiDung
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+<div class="container py-4 my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="h4 mb-3">Chưa có tài khoản? Đăng ký</h2>
+            <p class="fs-sm text-muted mb-4">Việc đăng ký chỉ mất chưa đầy một phút nhưng mang lại cho bạn toàn quyền kiểm soát đơn hàng của mình.</p>
+            @if (TempData["ThongBao"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    <i class="ci-check-circle me-2"></i>@TempData["ThongBao"]
+                </div>
+            }
+            @if (TempData["ThongBaoLoi"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <i class="ci-close-circle me-2"></i>@TempData["ThongBaoLoi"]
+                </div>
+            }
+            <form asp-action="Register" class="needs-validation" novalidate>
+                <div class="row gx-4 gy-3">
+                    <div class="col-12">
+                        <label asp-for="HoVaTen" class="form-label"></label>
+                        <input asp-for="HoVaTen" class="form-control" required />
+                        <span asp-validation-for="HoVaTen" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="DienThoai" class="form-label"></label>
+                        <input asp-for="DienThoai" class="form-control" />
+                        <span asp-validation-for="DienThoai" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="DiaChi" class="form-label"></label>
+                        <input asp-for="DiaChi" class="form-control" />
+                        <span asp-validation-for="DiaChi" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="TenDangNhap" class="form-label"></label>
+                        <input asp-for="TenDangNhap" class="form-control" required />
+                        <span asp-validation-for="TenDangNhap" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="MatKhau" class="form-label"></label>
+                        <input asp-for="MatKhau" class="form-control" required />
+                        <span asp-validation-for="MatKhau" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="XacNhanMatKhau" class="form-label"></label>
+                        <input asp-for="XacNhanMatKhau" class="form-control" required />
+                        <span asp-validation-for="XacNhanMatKhau" class="text-danger invalid-feedback"></span>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button class="btn btn-primary" type="submit"><i class="ci-user me-2 ms-n1"></i>Đăng ký</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

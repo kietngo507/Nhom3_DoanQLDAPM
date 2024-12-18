@@ -1,0 +1,206 @@
+﻿@model IEnumerable<ITShop.Models.DatHang>
+@{
+    ViewData["Title"] = "Đơn hàng của tôi";
+}
+<div class="page-title-overlap bg-dark pt-4">
+    <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+        <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                    <li class="breadcrumb-item">
+                        <a class="text-nowrap" asp-area="" asp-controller="Home" asp-action="Index"><i class="ci-home"></i>Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item text-nowrap">
+                        <a asp-area="" asp-controller="KhachHang" asp-action="Index">Khách hàng</a>
+                    </li>
+                    <li class="breadcrumb-item text-nowrap active" aria-current="page">Lịch sử mua hàng</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+            <h1 class="h3 text-light mb-0">Đơn hàng của tôi</h1>
+        </div>
+    </div>
+</div>
+<div class="container pb-5 mb-2 mb-md-4">
+    <div class="row">
+        <aside class="col-lg-4 pt-4 pt-lg-0 pe-xl-5">
+            <div class="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
+                <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
+                    <div class="d-md-flex align-items-center">
+                        <div class="img-thumbnail rounded-circle position-relative flex-shrink-0 mx-auto mb-2 mx-md-0 mb-md-0" style="width:6.375rem;">
+                            <img class="rounded-circle" src="~/img/avatar.jpg" />
+                        </div>
+                        <div class="ps-md-3">
+                            <h3 class="fs-base mb-0">@Model.First().NguoiDung.HoVaTen</h3>
+                            <span class="text-accent fs-sm">@Model.First().NguoiDung.Email</span>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false">
+                        <i class="ci-menu me-2"></i>Hồ sơ khách hàng
+                    </a>
+                </div>
+                <div class="d-lg-block collapse" id="account-menu">
+                    <div class="bg-secondary px-4 py-3">
+                        <h3 class="fs-sm mb-0 text-muted">Quản lý</h3>
+                    </div>
+                    <ul class="list-unstyled mb-0">
+                        <li class="border-bottom mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3 active" asp-area="" asp-controller="KhachHang" asp-action="DonHangCuaToi">
+                                <i class="ci-bag opacity-60 me-2"></i>Đơn hàng<span class="fs-sm text-muted ms-auto">@Model.Count()</span>
+                            </a>
+                        </li>
+                        <li class="border-bottom mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                                <i class="ci-heart opacity-60 me-2"></i>Sản phẩm yêu thích<span class="fs-sm text-muted ms-auto">0</span>
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                                <i class="ci-star opacity-60 me-2"></i>Đánh giá sản phẩm<span class="fs-sm text-muted ms-auto">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="bg-secondary px-4 py-3">
+                        <h3 class="fs-sm mb-0 text-muted">Thiết lập tài khoản</h3>
+                    </div>
+                    <ul class="list-unstyled mb-0">
+                        <li class="border-bottom mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3" asp-area="" asp-controller="KhachHang" asp-action="Index">
+                                <i class="ci-user opacity-60 me-2"></i>Hồ sơ cá nhân
+                            </a>
+                        </li>
+                        <li class="border-bottom mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                                <i class="ci-location opacity-60 me-2"></i>Sổ địa chỉ
+                            </a>
+                        </li>
+                        <li class="mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3" href="#">
+                                <i class="ci-card opacity-60 me-2"></i>Phương thức thanh toán
+                            </a>
+                        </li>
+                        <li class="d-lg-none border-top mb-0">
+                            <a class="nav-link-style d-flex align-items-center px-4 py-3" asp-area="" asp-controller="Home" asp-action="Logout">
+                                <i class="ci-sign-out opacity-60 me-2"></i>Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <section class="col-lg-8">
+            <div class="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
+                <div class="d-flex align-items-center">
+                    <label class="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2" for="order-sort">Sắp xếp theo:</label>
+                    <label class="d-lg-none fs-sm text-nowrap opacity-75 me-2" for="order-sort">Sắp xếp theo:</label>
+                    <select class="form-select" id="order-sort">
+                        <option>Tất cả</option>
+                        <option>Đã giao</option>
+                        <option>Đang vận chuyển</option>
+                        <option>Đã chuyển hoàn</option>
+                        <option>Đã hủy</option>
+                    </select>
+                </div>
+                <a class="btn btn-primary btn-sm d-none d-lg-inline-block" asp-area="" asp-controller="Home" asp-action="Logout">
+                    <i class="ci-sign-out me-2"></i>Đăng xuất
+                </a>
+            </div>
+            <div class="table-responsive fs-md mb-4">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th width="5%">#</th>
+                            <th width="15%">Mã đơn</th>
+                            <th width="25%">Ngày đặt hàng</th>
+                            <th width="25%">Trạng thái</th>
+                            <th width="10%" class="text-center">SL</th>
+                            <th width="20%" class="text-end">Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int stt = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-3">@stt</td>
+                                <td class="py-3">
+                                    <a class="nav-link-style fw-medium" href="#ChiTietDonHang_@item.ID" data-bs-toggle="modal">
+                                        @item.ID.ToString().PadLeft(8, '0')
+                                    </a>
+                                </td>
+                                <td class="py-3">@item.NgayDatHang</td>
+                                <td class="py-3"><span class="badge bg-info m-0">@item.TinhTrang.MoTa</span></td>
+                                <td class="py-3 text-center">@item.DatHang_ChiTiet.Sum(r => r.SoLuong)</td>
+                                <td class="py-3 text-end">@string.Format("{0:N0}", item.DatHang_ChiTiet.Sum(r => r.SoLuong * r.DonGia))đ</td>
+                            </tr>
+                            stt++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i>Prev</a></li>
+                </ul>
+                <ul class="pagination">
+                    <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                </ul>
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+</div>
+@foreach (var item in Model)
+{
+    <div class="modal fade" id="ChiTietDonHang_@item.ID">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chi tiết đơn hàng - @item.ID.ToString().PadLeft(8, '0')</h5>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-0">
+                    @foreach (var chiTiet in item.DatHang_ChiTiet)
+                    {
+                        <div class="row align-items-center mb-2 pb-2 @(chiTiet != item.DatHang_ChiTiet.Last() ? "border-bottom" : "")">
+                            <div class="col-md-9">
+                                <div class="d-sm-flex">
+                                    <a class="d-inline-block pt-1" href="#" style="width:5rem;">
+                                        <img src="~/uploads/@chiTiet.SanPham.HinhAnh" width="80" />
+                                    </a>
+                                    <div class="ps-sm-4 pt-2">
+                                        <h4 class="product-title fs-base mb-2"><a href="#">@chiTiet.SanPham.TenSanPham</a></h4>
+                                        <div class="pt-2">@string.Format("{0:N0}", chiTiet.DonGia)<small>đ</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 text-center">
+                                <div class="text-muted mb-2">SL</div>
+                                <span>@chiTiet.SoLuong</span>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <div class="text-muted mb-2">Thành tiền</div>
+                                <span>@string.Format("{0:N0}", (chiTiet.SoLuong * chiTiet.DonGia))</span><small>đ</small>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer bg-secondary fs-md">
+                    <div class="text-end">
+                        <span class="text-muted">Tổng tiền sản phẩm:</span>
+                        <span class="fs-lg">@string.Format("{0:N0}", item.DatHang_ChiTiet.Sum(r => r.SoLuong * r.DonGia))<small>đ</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

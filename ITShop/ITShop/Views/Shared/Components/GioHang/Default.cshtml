@@ -1,0 +1,8 @@
+﻿<div class="navbar-tool ms-3">
+    <a class="navbar-tool-icon-box bg-secondary" asp-area="" asp-controller="GioHang" asp-action="Index">
+        <span class="navbar-tool-label">@TempData["TopMenu_TongSoLuong"]</span><i class="navbar-tool-icon ci-cart"></i>
+    </a>
+    <a class="navbar-tool-text" asp-area="" asp-controller="GioHang" asp-action="Index">
+        <small>Giỏ hàng</small>@string.Format("{0:N0}", TempData["TopMenu_TongTien"])đ
+    </a>
+</div>
