@@ -1,0 +1,35 @@
+﻿@model ITShop.Models.BinhLuanBaiViet
+@{
+    ViewData["Title"] = "Thêm bình luận bài viết";
+}
+<div class="card">
+    <h5 class="card-header">@ViewData["Title"]</h5>
+    <div class="card-body">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="BaiVietID" class="control-label"></label>
+                <select asp-for="BaiVietID" class="form-control" asp-items="ViewBag.BaiVietID">
+                    <option value="">-- Chọn --</option>
+                </select>
+                <span asp-validation-for="BaiVietID" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NoiDungBinhLuan" class="control-label"></label>
+                <textarea asp-for="NoiDungBinhLuan" rows="6" class="form-control"></textarea>
+                <span asp-validation-for="NoiDungBinhLuan" class="text-danger"></span>
+            </div>
+
+            <div class="mb-0">
+                <button type="submit" class="btn btn-primary"><i class="fa-light fa-floppy-disk"></i> Thêm mới</button> hoặc <a asp-action="Index">Quay về danh sách</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

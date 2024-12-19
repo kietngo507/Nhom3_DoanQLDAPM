@@ -1,0 +1,9 @@
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.csproj.AssemblyReference.cache
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.AssemblyInfoInputs.cache
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.AssemblyInfo.cs
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.csproj.CoreCompileInputs.cache
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.MvcApplicationPartsAssemblyInfo.cache
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.RazorAssemblyInfo.cache
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.RazorAssemblyInfo.cs
+D:\Nhom3_DoAnQLDA\Nhom3_DoanQLDAPM\Nhom3_DoanQLDAPM\ShopMyPham\obj\Debug\net8.0\ShopMyPham.sourcelink.json

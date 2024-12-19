@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Nhom3_DoAnQLDA\\Nhom3_DoanQLDAPM\\Nhom3_DoanQLDAPM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F96AE80-A906-49D8-8B9A-A09899ADACAF}|ShopMyPham\\ShopMyPham.csproj|d:\\nhom3_doanqlda\\nhom3_doanqldapm\\nhom3_doanqldapm\\shopmypham\\areas\\admin\\controllers\\baivietcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F96AE80-A906-49D8-8B9A-A09899ADACAF}|ShopMyPham\\ShopMyPham.csproj|solutionrelative:shopmypham\\areas\\admin\\controllers\\baivietcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F96AE80-A906-49D8-8B9A-A09899ADACAF}|ShopMyPham\\ShopMyPham.csproj|d:\\nhom3_doanqlda\\nhom3_doanqldapm\\nhom3_doanqldapm\\shopmypham\\models\\baiviet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F96AE80-A906-49D8-8B9A-A09899ADACAF}|ShopMyPham\\ShopMyPham.csproj|solutionrelative:shopmypham\\models\\baiviet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaiVietController.cs",
+              "DocumentMoniker": "D:\\Nhom3_DoAnQLDA\\Nhom3_DoanQLDAPM\\Nhom3_DoanQLDAPM\\ShopMyPham\\Areas\\Admin\\Controllers\\BaiVietController.cs",
+              "RelativeDocumentMoniker": "ShopMyPham\\Areas\\Admin\\Controllers\\BaiVietController.cs",
+              "ToolTip": "D:\\Nhom3_DoAnQLDA\\Nhom3_DoanQLDAPM\\Nhom3_DoanQLDAPM\\ShopMyPham\\Areas\\Admin\\Controllers\\BaiVietController.cs",
+              "RelativeToolTip": "ShopMyPham\\Areas\\Admin\\Controllers\\BaiVietController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T02:57:59.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaiViet.cs",
+              "DocumentMoniker": "D:\\Nhom3_DoAnQLDA\\Nhom3_DoanQLDAPM\\Nhom3_DoanQLDAPM\\ShopMyPham\\Models\\BaiViet.cs",
+              "RelativeDocumentMoniker": "ShopMyPham\\Models\\BaiViet.cs",
+              "ToolTip": "D:\\Nhom3_DoAnQLDA\\Nhom3_DoanQLDAPM\\Nhom3_DoanQLDAPM\\ShopMyPham\\Models\\BaiViet.cs",
+              "RelativeToolTip": "ShopMyPham\\Models\\BaiViet.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowBoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T02:55:25.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

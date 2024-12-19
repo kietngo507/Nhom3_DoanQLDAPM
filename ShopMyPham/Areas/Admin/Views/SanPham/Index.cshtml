@@ -1,0 +1,195 @@
+﻿@model IEnumerable<ITShop.Models.SanPham>
+@{
+	ViewData["Title"] = "Sản phẩm";
+}
+@section Styles {
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" />
+}
+<div class="card">
+	<h5 class="card-header">@ViewData["Title"]</h5>
+	<div class="card-body">
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<p><a asp-action="Create" class="btn btn-success"><i class="fa-light fa-plus"></i> Thêm mới</a></p>
+			</div>
+			<div class="col-md-6 text-end">
+				<div id="export-buttons"></div>
+			</div>
+		</div>
+		<table id="datatable" class="table table-sm table-hover table-striped table-bordered mb-0">
+			<thead>
+				<tr>
+					<th width="5%">#</th>
+					<th>@Html.DisplayNameFor(model => model.HinhAnh)</th>
+					<th>@Html.DisplayNameFor(model => model.LoaiSanPham.TenLoai)</th>
+					<th>@Html.DisplayNameFor(model => model.HangSanXuat.TenHangSanXuat)</th>
+					<th>@Html.DisplayNameFor(model => model.TenSanPham)</th>
+					<th>@Html.DisplayNameFor(model => model.SoLuong)</th>
+					<th>@Html.DisplayNameFor(model => model.DonGia)</th>
+					<th width="5%">Sửa</th>
+					<th width="5%">Xóa</th>
+				</tr>
+			</thead>
+			<tbody>
+				@{
+					var stt = 1;
+				}
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@stt</td>
+						<td class="text-center"><img src="~/uploads/@item.HinhAnh" width="60" class="img-thumbnail" /></td>
+						<td>@Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)</td>
+						<td>@Html.DisplayFor(modelItem => item.HangSanXuat.TenHangSanXuat)</td>
+						<td>@Html.DisplayFor(modelItem => item.TenSanPham)</td>
+						<td class="text-end">@Html.DisplayFor(modelItem => item.SoLuong)</td>
+						<td class="text-end">@Html.DisplayFor(modelItem => item.DonGia)</td>
+						<td class="text-center">
+							<a asp-action="Edit" asp-route-id="@item.ID"><i class="fa-light fa-pen-to-square"></i></a>
+						</td>
+						<td class="text-center">
+							<a asp-action="Delete" asp-route-id="@item.ID"><i class="fa-light fa-trash-can text-danger"></i></a>
+						</td>
+					</tr>
+					stt++;
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+@section Scripts {
+	<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+	<script>
+		var table = $('#datatable').DataTable({
+			language: {
+				processing: 'Đang xử lý...',
+				lengthMenu: 'Hiển thị _MENU_ dòng',
+				zeroRecords: 'Không tìm thấy dòng nào phù hợp',
+				info: 'Đang xem _START_ đến _END_ trong tổng số _TOTAL_ dòng',
+				infoEmpty: 'Đang xem 0 đến 0 trong tổng số 0 dòng',
+				emptyTable: 'Không có dữ liệu',
+				infoFiltered: '(được lọc từ _MAX_ dòng)',
+				infoPostFix: '',
+				search: 'Tìm kiếm:',
+				paginate: {
+					first: '<i class="fa-duotone fa-arrow-left-to-line"></i>',
+					last: '<i class="fa-duotone fa-arrow-right-to-line"></i>',
+					next: '<i class="fa-duotone fa-arrow-right"></i>',
+					previous: '<i class="fa-duotone fa-arrow-left"></i>'
+				},
+				buttons: {
+					excel: '<i class="fa-duotone fa-file-excel"></i> Xuất Excel',
+					copy: '<i class="fa-duotone fa-clipboard"></i> Sao chép',
+					copyTitle: 'Đã sao chép',
+					copySuccess: {
+						_: 'Đã sao chép %d dòng vào bộ nhớ tạm.',
+						1: 'Đã sao chép 1 dòng vào bộ nhớ tạm.'
+					}
+				}
+			},
+			buttons: [{
+				extend: 'excelHtml5',
+				title: null,
+				filename: 'DanhSachSanPham'
+			}, {
+				extend: 'copyHtml5',
+				title: null
+			}],
+			processing: true,
+			serverSide: true,
+			filter: true, // Hiển thị ô Tìm kiếm
+			orderMulti: false, // Chỉ cho sắp xếp mỗi lần 1 cột
+			ajax: {
+				url: '@Url.Action("Index_LoadData", "SanPham", new { Area = "Admin" })', // Hàm lấy dữ liệu Index_LoadData() bên trong SanPhamController
+				type: 'POST',
+				datatype: 'json'
+			},
+			columnDefs: [
+				{
+					targets: [1, 7, 8],
+					className: 'text-center' // Cột 1 (Hình ảnh), 7 (Sửa), 8 (Xóa) canh giữa
+				},
+				{
+					targets: [5, 6],
+					className: 'text-end' // Cột 5 (Số lượng), 6 (Đơn giá) canh phải.
+				}
+			],
+			columns: [
+				{
+					// Cột 0: STT
+					data: null,
+					name: null,
+					sortable: false, // Không cho sắp xếp
+					render: function (data, type, row, meta) {
+						return meta.row + meta.settings._iDisplayStart + 1;
+					}
+				},
+				{
+					// Cột 1: Hình ảnh
+					data: 'HinhAnh',
+					name: 'HinhAnh',
+					sortable: false, // Không cho sắp xếp
+					render: function (data, type, row, meta) {
+						return '<img src="/uploads/' + row.HinhAnh + '" width = "60" class="img-thumbnail" />';
+					}
+				},
+				{
+					// Cột 2: Tên loại sản phẩm
+					data: 'TenLoai',
+					name: 'TenLoai'
+				},
+				{
+					// Cột 3: Tên hãng sản xuất
+					data: 'TenHangSanXuat',
+					name: 'TenHangSanXuat'
+				},
+				{
+					// Cột 4: Tên sản phẩm
+					data: 'TenSanPham',
+					name: 'TenSanPham'
+				},
+				{
+					// Cột 5: Số lượng
+					data: 'SoLuong',
+					name: 'SoLuong',
+					render: DataTable.render.number(null, null, 0)
+				},
+				{
+					// Cột 6: Đơn giá
+					data: 'DonGia',
+					name: 'DonGia',
+					render: DataTable.render.number(null, null, 0)
+				},
+				{
+					// Cột 7: Sửa
+					data: null,
+					name: null,
+					sortable: false, // Không cho sắp xếp
+					render: function (data, type, row, meta) {
+						return '<a href="/Admin/SanPham/Edit/' + row.ID + '"><i class="fa-light fa-pen-to-square"></i></a>';
+					}
+				},
+				{
+					// Cột 8: Xóa
+					data: null,
+					name: null,
+					sortable: false, // Không cho sắp xếp
+					render: function (data, type, row, meta) {
+						return '<a href="/Admin/SanPham/Delete/' + row.ID + '"><i class="fa-light fa-trash-can text-danger"></i></a>';
+					}
+				}
+			],
+			initComplete: function (settings, json) {
+				table.buttons().container().appendTo('#export-buttons');
+				$('#export-buttons .btn').removeClass('btn-secondary').addClass('btn-info');
+				$('#datatable').wrap('<div class="table-responsive"></div>');
+			}
+		});
+	</script>
+}
